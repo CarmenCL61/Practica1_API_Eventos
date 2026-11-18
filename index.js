@@ -19,6 +19,14 @@ app.use(express.json());
 app.use('/eventos', routerEventos);
 app.use('/recintos', routerRecintos);
 
+// Ruta raíz de bienvenida y estado del servicio
+app.get('/', (req, res) => {
+    res.status(200).json({
+        ok: true,
+        resultado: 'API REST de Eventos funcionando correctamente'
+    });
+});
+
 // 7 y 8. Conectar a MongoDB y arrancar el servidor solo si la conexión es exitosa
 const puerto = process.env.PORT || 3000;
 
